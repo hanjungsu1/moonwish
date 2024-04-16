@@ -1,24 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
-  <title>보름달에 소원 보내기</title>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet"
-    href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/monthlycoding/2309_moonwish/wish.css">
-  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-    crossorigin="anonymous"></script>
-  <script
-    src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/monthlycoding/2309_moonwish/wish.js"></script>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달에 소원을 보내다</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0c1445;
+            color: #ffffff;
+            text-align: center;
+        }
+        #moonContainer {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #moon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+        }
+        #faceOverlay {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            max-width: 300px;
+            z-index: 1;
+        }
+        #wishForm {
+            margin-top: 20px;
+        }
+        input[type="text"],
+        textarea {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ffffff;
+            color: #0c1445;
+        }
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ffc107;
+            color: #0c1445;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ffca28;
+        }
+    </style>
 
 <body>
-    <h1>보름달에 소원을 빌어보세요</h1>
+    <div id="moonContainer">
+        <div id="moon"></div>
+        <div id="faceOverlay"></div>
+    </div>
+    <h1>달에 소원을 보내다</h1>
+    <h2>지금 당신의 소원을 적어보세요</h2>
     <form id="wishForm">
         <label for="nickname">닉네임:</label>
         <input type="text" id="nickname" name="nickname" required><br><br>
